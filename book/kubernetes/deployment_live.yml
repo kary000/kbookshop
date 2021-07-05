@@ -1,4 +1,4 @@
-apiVersion: apps/v2
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: book
@@ -16,9 +16,13 @@ spec:
     spec:
       containers:
         - name: book
-          image: user19skccacr.azurecr.io/book:v2
+          image: user19skccacr.azurecr.io/book:v7
           ports:
             - containerPort: 8080
+          args:
+          - /bin/sh
+          - -c
+          - touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 600
           livenessProbe:
             exec:
               command:

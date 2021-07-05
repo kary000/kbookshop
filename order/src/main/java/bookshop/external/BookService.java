@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Date;
 
-@FeignClient(name="book", url="http://localhost:8081")
-//@FeignClient(name="book", url="http://book:8080")
+//@FeignClient(name="book", url="http://localhost:8081")
+@FeignClient(name="book", url="http://book:8080")
 public interface BookService {
 
     @RequestMapping(method= RequestMethod.GET, path="/chkAndModifyStock")

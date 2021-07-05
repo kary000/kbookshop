@@ -41,7 +41,6 @@ public class MypageViewHandler {
         }
     }
 
-
     @StreamListener(KafkaProcessor.INPUT)
     public void whenShipped_then_UPDATE_1(@Payload Shipped shipped) {
         try {
@@ -51,7 +50,7 @@ public class MypageViewHandler {
                 List<Mypage> mypageList = mypageRepository.findByOrderId(shipped.getOrderId());
                 for(Mypage mypage : mypageList){
                     // view 객체에 이벤트의 eventDirectValue 를 set 함
-                    mypage.setStatus(shipped.getStatus());
+                    mypage.setStatus("Shipped");
                     // view 레파지 토리에 save
                     mypageRepository.save(mypage);
                 }

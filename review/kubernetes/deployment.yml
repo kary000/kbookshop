@@ -1,4 +1,4 @@
-apiVersion: apps/v2
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: review
@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: review
-          image: user19skccacr.azurecr.io/review:v2
+          image: user19skccacr.azurecr.io/review:v7
           ports:
             - containerPort: 8080

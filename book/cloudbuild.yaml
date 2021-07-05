@@ -20,7 +20,7 @@ steps:
     name: 'gcr.io/cloud-builders/docker'
     args:
       - 'build'
-      - '--tag=gcr.io/$PROJECT_ID/$_PROJECT_NAME:v2'
+      - '--tag=gcr.io/$PROJECT_ID/$_PROJECT_NAME:v7'
       - '.'
   ### Publish
   - id: 'publish'
@@ -29,7 +29,7 @@ steps:
     args:
       - '-c'
       - |
-        docker push gcr.io/$PROJECT_ID/$_PROJECT_NAME:v2
+        docker push gcr.io/$PROJECT_ID/$_PROJECT_NAME:v7
   ### deploy
   - id: 'deploy'
     name: 'gcr.io/cloud-builders/gcloud'
@@ -74,7 +74,7 @@ steps:
             spec:
               containers:
                 - name: $_PROJECT_NAME
-                  image: gcr.io/$PROJECT_ID/$_PROJECT_NAME:v2
+                  image: gcr.io/$PROJECT_ID/$_PROJECT_NAME:v7
                   ports:
                     - containerPort: 8080
         EOF

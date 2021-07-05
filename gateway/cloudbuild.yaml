@@ -37,7 +37,7 @@ steps:
           --zone "$${CLOUDSDK_COMPUTE_ZONE}"
 
         cat <<EOF | kubectl apply -f -
-        apiVersion: v2
+        apiVersion: v1
         kind: Service
         metadata:
           name: $_PROJECT_NAME
@@ -54,7 +54,7 @@ steps:
         EOF
 
         cat <<EOF | kubectl apply -f -
-        apiVersion: apps/v2
+        apiVersion: apps/v1
         kind: Deployment
         metadata:
           name: $_PROJECT_NAME

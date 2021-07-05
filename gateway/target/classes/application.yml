@@ -23,7 +23,7 @@ spring:
         - id: mypage
           uri: http://localhost:8084
           predicates:
-            - Path= /myPages/**
+            - Path= /mypages/**
         - id: review
           uri: http://localhost:8085
           predicates:
@@ -62,7 +62,7 @@ spring:
         - id: mypage
           uri: http://mypage:8080
           predicates:
-            - Path= /myPages/**
+            - Path= /mypages/**
         - id: review
           uri: http://review:8080
           predicates:

@@ -1,4 +1,4 @@
-apiVersion: apps/v2
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: delivery
@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: delivery
-          image: user19skccacr.azurecr.io/delivery:v2
+          image: user19skccacr.azurecr.io/delivery:v7
           ports:
             - containerPort: 8080
