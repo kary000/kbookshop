@@ -524,9 +524,9 @@ http POST http://localhost:8082/orders buyer=kary title=wonder qty=1 address=Jeo
 - 소스 git 업로드
 ```
 git add .
-git commit -m "commit v1"
-git remote add kybookshop https://github.com/kary000/kybookshop.git
-git push -u kybookshop master
+git commit -m "commit v7"
+git remote add kbookshop https://github.com/kary000/kbookshop.git
+git push -u kbookshop master
 ```
 ![image](https://user-images.githubusercontent.com/84000898/124408120-81e8c480-dd80-11eb-8820-582358f23dc4.png)
 
