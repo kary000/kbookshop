@@ -202,12 +202,11 @@ public interface BookRepository extends PagingAndSortingRepository<Book, Long>{
 }
 ```
 - 적용 후 REST API 의 테스트
-
-# book 서비스의 책등록처리
+: book 서비스의 책등록처리
 http POST http://localhost:8081/books title=NoMadLand author=nana publisher=cnn stock=10 bookId=1
 ![image](https://user-images.githubusercontent.com/84000898/124405875-bc4f6300-dd7a-11eb-980b-e9d594c7b909.png)
 
-# 책등록 확인
+: 책등록 확인
 http GET http://localhost:8081/books
 ![image](https://user-images.githubusercontent.com/84000898/124405911-d721d780-dd7a-11eb-8704-8d9f59cc4248.png)
 
