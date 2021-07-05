@@ -121,6 +121,9 @@ mvn spring-boot:run
 cd review
 mvn spring-boot:run
 
+cd gateway
+mvn spring-boot:run
+
 ```
 
 ## DDD 의 적용
