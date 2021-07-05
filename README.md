@@ -497,7 +497,7 @@ public class PolicyHandler{
 ...
 
 ```
-주문(order) 서비스는 배송업체(delivery) 서비스와 완전히 분리되어있으며(sync transaction 없음) 이벤트 수신에 따라 처리되기 때문에, delivery 서비스가 유지보수로 인해 잠시 내려간 상태라도 예약을 진행해도 문제 없다.(시간적 디커플링) :
+주문(order) 서비스는 배송업체(delivery) 서비스와 분리되어있으며, 이벤트 수신에 따라 처리되기 때문에, delivery 서비스가 내려간 상태라도 주문을 진행해도 문제 없다. :
   
 - 배송업체(delivery) 서비스를 잠시 내려놓고, 도서주문(order)
 ```
