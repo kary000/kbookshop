@@ -528,7 +528,7 @@ git commit -m "commit v7"
 git remote add kbookshop https://github.com/kary000/kbookshop.git
 git push -u kbookshop master
 ```
-![image](https://user-images.githubusercontent.com/84000898/124408120-81e8c480-dd80-11eb-8820-582358f23dc4.png)
+![image](https://user-images.githubusercontent.com/84000898/124506992-ccf9ea80-de07-11eb-93ee-6d3467b826fb.png)
 
 - 빌드하기
 ```
