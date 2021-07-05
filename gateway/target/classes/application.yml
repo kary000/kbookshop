@@ -8,22 +8,26 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: product
+        - id: book
           uri: http://localhost:8081
           predicates:
-            - Path=/products/**, /chkAndModifyStock/** 
-        - id: customercenter
+            - Path=/books/**, /chkAndModifyStock/**
+        - id: order
           uri: http://localhost:8082
           predicates:
-            - Path= /myPages/**
-        - id: store
+            - Path=/orders/** 
+        - id: delivery
           uri: http://localhost:8083
           predicates:
-            - Path=/stores/** 
-        - id: booking
+            - Path=/deliveries/** 
+        - id: mypage
           uri: http://localhost:8084
           predicates:
-            - Path=/bookings/**
+            - Path= /myPages/**
+        - id: review
+          uri: http://localhost:8085
+          predicates:
+            - Path=/reviews/** 
       globalcors:
         corsConfigurations:
           '[/**]':
@@ -43,22 +47,26 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: product
-          uri: http://product:8080
+        - id: book
+          uri: http://book:8080
           predicates:
-            - Path=/products/**, /chkAndModifyStock/**   
-        - id: customercenter
-          uri: http://customercenter:8080
+            - Path=/books/**, /chkAndModifyStock/**
+        - id: order
+          uri: http://order:8080
+          predicates:
+            - Path=/orders/** 
+        - id: delivery
+          uri: http://delivery:8080
+          predicates:
+            - Path=/deliveries/** 
+        - id: mypage
+          uri: http://mypage:8080
           predicates:
             - Path= /myPages/**
-        - id: store
-          uri: http://store:8080
+        - id: review
+          uri: http://review:8080
           predicates:
-            - Path=/stores/** 
-        - id: booking
-          uri: http://booking:8080
-          predicates:
-            - Path=/bookings/**
+            - Path=/reviews/** 
       globalcors:
         corsConfigurations:
           '[/**]':
