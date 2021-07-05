@@ -689,7 +689,7 @@ watch -n 1 kubectl get pod
 
 - 어느정도 시간이 흐른 후 스케일 아웃이 벌어지는 것을 확인할 수 있다:
 
-![image](https://user-images.githubusercontent.com/84000863/122336985-a1a67d00-cf78-11eb-8be9-d1700f67ceb2.png)
+![image](https://user-images.githubusercontent.com/84000898/124523326-99cc5100-de31-11eb-9b03-48ac7594970b.png)
 
 
 ![image](https://user-images.githubusercontent.com/84000898/124458345-cf3c5480-ddc7-11eb-888b-dc8d386c970a.png)
