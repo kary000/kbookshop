@@ -1,4 +1,4 @@
-apiVersion: apps/v1
+apiVersion: apps/v2
 kind: Deployment
 metadata:
   name: order
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: order
-          image: karyskccacr.azurecr.io/order:v1
+          image: user19skccacr.azurecr.io/order:v2
           ports:
             - containerPort: 8080
           env:
@@ -25,3 +25,11 @@ spec:
                 configMapKeyRef:
                   name: orderst
                   key: status
+          feign:
+            hystrix:
+              enabled: true
+              
+          hystrix:
+            command:
+              default:
+                execution.isolation.thread.timeoutInMilliseconds: 500

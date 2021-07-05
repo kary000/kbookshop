@@ -1,4 +1,4 @@
-apiVersion: apps/v1
+apiVersion: apps/v2
 kind: Deployment
 metadata:
   name: book
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: book
-          image: karyskccacr.azurecr.io/book:v1
+          image: user19skccacr.azurecr.io/book:v2
           ports:
             - containerPort: 8080
           readinessProbe:
