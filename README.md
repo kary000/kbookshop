@@ -106,22 +106,13 @@
 구현한 각 서비스를 로컬에서 실행하는 방법은 아래와 같다 (각자의 포트넘버는 8081 ~ 808n 이다)
 
 ```
-cd book
-mvn spring-boot:run
+cd C:\kkk\bookshop\order
+cd C:\kkk\bookshop\book
+cd C:\kkk\bookshop\delivery
+cd C:\kkk\bookshop\mypage
+cd C:\kkk\bookshop\gateway
+cd C:\kkk\bookshop\review
 
-cd order
-mvn spring-boot:run 
-
-cd delivery
-mvn spring-boot:run  
-
-cd mapage
-mvn spring-boot:run
-
-cd review
-mvn spring-boot:run
-
-cd gateway
 mvn spring-boot:run
 
 ```
@@ -347,7 +338,7 @@ http POST http://localhost:8082/orders buyer=kary title=Parasite qty=1 address=J
 
 - book 서비스 재기동
 ```
-cd book
+cd C:\kkk\bookshop\book
 mvn spring-boot:run
 ```
 
@@ -535,22 +526,13 @@ git push -u kbookshop master
 
 - 빌드하기
 ```
-cd book
-mvn package 
+cd C:\kkk\bookshop\order
+cd C:\kkk\bookshop\book
+cd C:\kkk\bookshop\delivery
+cd C:\kkk\bookshop\mypage
+cd C:\kkk\bookshop\gateway
+cd C:\kkk\bookshop\review
 
-cd order
-mvn package 
-
-cd delivery
-mvn package  
-
-cd mapage
-mvn package 
-
-cd review
-mvn package 
-
-cd gateway
 mvn package
 ```
 
@@ -558,67 +540,41 @@ mvn package
 
 - 도커라이징(Dockerizing) : Azure Container Registry(ACR)에 Docker Image Push하기
 ```
-cd book
-az acr build --registry user19skccacr --image user19skccacr.azurecr.io/book:v1
+cd C:\kkk\bookshop\order
+cd C:\kkk\bookshop\book
+cd C:\kkk\bookshop\delivery
+cd C:\kkk\bookshop\mypage
+cd C:\kkk\bookshop\review
+cd C:\kkk\bookshop\gateway
 
-cd order
-az acr build --registry user19skccacr --image user19skccacr.azurecr.io/order:v1
-
-cd delivery
-az acr build --registry user19skccacr --image user19skccacr.azurecr.io/delivery:v1 
-
-cd mapage
-az acr build --registry user19skccacr --image user19skccacr.azurecr.io/mapage:v1
-
-cd review
-az acr build --registry user19skccacr --image user19skccacr.azurecr.io/review:v1
-
-cd gateway
-az acr build --registry user19skccacr --image user19skccacr.azurecr.io/gateway:v1
+az acr build --registry user19skccacr --image user19skccacr.azurecr.io/order:v7 .
+az acr build --registry user19skccacr --image user19skccacr.azurecr.io/book:v7 .
+az acr build --registry user19skccacr --image user19skccacr.azurecr.io/delivery:v7 .
+az acr build --registry user19skccacr --image user19skccacr.azurecr.io/mypage:v7 .
+az acr build --registry user19skccacr --image user19skccacr.azurecr.io/review:v7 .
+az acr build --registry user19skccacr --image user19skccacr.azurecr.io/gateway:v7 .
 ```
 ![image](https://user-images.githubusercontent.com/84000898/124409871-2f110c00-dd84-11eb-8ba7-9a5c6af7bc6b.png)
 
 - 컨테이너라이징(Containerizing) : Deployment 생성
 ```
-cd book
-kubectl apply -f kubernetes/deployment.yml
-
-cd order
-kubectl apply -f kubernetes/deployment.yml
-
-cd delivery
-kubectl apply -f kubernetes/deployment.yml
-
-cd mapage
-kubectl apply -f kubernetes/deployment.yml
-
-cd review
-kubectl apply -f kubernetes/deployment.yml
-
-cd gateway
-kubectl create deploy gateway --image=user19skccacr.azurecr.io/gateway:v1
+kubectl create deploy order --image=user19skccacr.azurecr.io/order:v7
+kubectl create deploy book --image=user19skccacr.azurecr.io/book:v7
+kubectl create deploy delivery --image=user19skccacr.azurecr.io/delivery:v7
+kubectl create deploy mypage --image=user19skccacr.azurecr.io/mypage:v7
+kubectl create deploy review --image=user19skccacr.azurecr.io/review:v7
+kubectl create deploy gateway --image=user19skccacr.azurecr.io/gateway:v7
 
 kubectl get all
 ```
 
 - 컨테이너라이징(Containerizing) : Service 생성 확인
 ```
-cd book
-kubectl apply -f kubernetes/service.yaml
-
-cd order
-kubectl apply -f kubernetes/service.yaml
-
-cd delivery
-kubectl apply -f kubernetes/service.yaml
-
-cd mapage
-kubectl apply -f kubernetes/service.yaml
-
-cd review
-kubectl apply -f kubernetes/service.yaml
-
-cd gateway
+kubectl expose deploy order --type=ClusterIP --port=8080
+kubectl expose deploy book --type=ClusterIP --port=8080
+kubectl expose deploy delivery --type=ClusterIP --port=8080
+kubectl expose deploy mypage --type=ClusterIP --port=8080
+kubectl expose deploy review --type=ClusterIP --port=8080
 kubectl expose deploy gateway --type=LoadBalancer --port=8080
 
 kubectl get all
