@@ -630,7 +630,7 @@ kubectl get all
 
 시나리오는 도서주문 요청이 과도할 경우 Circuit Breaking 을 통하여 장애격리.
 
-Hystrix 설정: 요청처리 쓰레드에서 처리시간이 500 밀리가 넘어서면 Circuit Breaking 회로가 닫히도록 (요청을 빠르게 실패처리, 차단) 설정
+: 500밀리세컨초 (0.5초) 내에 주문(order) 호출에 대한 응답이 없다면 시간 초과 에러가 발생하여,  Circuit Breaking 회로가 닫히도록 (요청을 빠르게 실패처리, 차단) 설정
 
 ```
 # application.yml
