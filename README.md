@@ -616,28 +616,28 @@ $ siege -c100 -t30S -v --content-type "application/json" 'http://order:8080/orde
 ### Autoscale (HPA)
 주문(order) 서비스에 대한 replica 를 동적으로 늘려주도록 HPA 를 설정한다. 
 
-- autocale out 설정 
+- 자동 크기 조정을 사용하기위한, 소스요청 및 제한에 대한 정의 : 0.25 CPU를 요청하며 제한은 0.5 CPU 
 
 ![image](https://user-images.githubusercontent.com/84000898/124470515-a66f8b80-ddd6-11eb-80e5-9f8d0fcc53fe.png)
 
-- 상품(product) 서비스에 대한 replica 를 동적으로 늘려주도록 HPA 를 설정한다. 설정은 CPU 사용량이 1프로를 넘어서면 replica 를 10개까지 늘려준다:
+- CPU 사용량이 1프로를 넘어서면 replica 를 10개까지 늘려준다:
 ```
 kubectl autoscale deploy product --min=1 --max=10 --cpu-percent=1
 kubectl get hpa
 ```
 ![image](https://user-images.githubusercontent.com/84000898/124458431-ec712300-ddc7-11eb-8132-2d3c8739c255.png)
 
-- CB 에서 했던 방식대로 워크로드를 30초 동안 걸어준다.
+- 동시사용자 100명, 30초 동안 실행
 ```
 siege -c100 -t30S -v --content-type "application/json" 'http://order:8080/orders POST {"buyer" : "kary", "title" : "NoMadLand", "qty" : "1", "address" : "Jeongjadong", "status" : "Bought", "bookId" : "1"}'
 ```
 
-- 오토스케일이 어떻게 되고 있는지 모니터링을 걸어둔다:
+- 매1초단위로 오토스케일 모니터링을 걸어둔다:
 ```
 watch -n 1 kubectl get pod
 ```
 
-- 어느정도 시간이 흐른 후 스케일 아웃이 벌어지는 것을 확인할 수 있다:
+- 스케일 아웃이 벌어지는 것을 확인할 수 있다:
 
 ![image](https://user-images.githubusercontent.com/84000898/124523326-99cc5100-de31-11eb-9b03-48ac7594970b.png)
 
