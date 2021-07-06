@@ -652,7 +652,7 @@ watch -n 1 kubectl get pod
 ```
 siege -c10 -t360S -v --content-type "application/json" 'http://book:8080/books POST {"title": "NoMadLand", "author":"nana", "publisher":"cnn", "stock":"10", "bookId":"1"}'
 ```
-- Readiness가 설정되지 않은 yml 파일로 배포 중 버전6에서 버전4로 다운그레이드 시 서비스 요청 처리 실패
+- Readiness가 설정되지 않은 yml 파일로 배포 중 버전7에서 버전4로 다운그레이드 시 서비스 요청 처리 실패
 ```
 kubectl set image deploy book book=user19skccacr.azurecr.io/book:v4
 
