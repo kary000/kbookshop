@@ -597,8 +597,7 @@ hystrix:
 ```
 
 * 부하테스터 siege 툴을 통한 서킷 브레이커 동작 확인:
-- 동시사용자 100명
-- 30초 동안 실시
+- 동시사용자 100명, 30초 동안 실행
 
 ```
 $ siege -c100 -t30S -v --content-type "application/json" 'http://order:8080/orders POST {"buyer" : "kary", "title" : "NoMadLand", "qty" : "1", "address" : "Jeongjadong", "status" : "Bought", "boookId" : "1"}'
