@@ -40,7 +40,7 @@
 7. Circuit Breaker
 8. Autoscale (HPA)
 9. Zero-downtime deploy
-10. f Map / Persistence Volume
+10. ConfigMap / Persistence Volume
 11. Polyglot
 12. Self-healing (Liveness Probe)
 
