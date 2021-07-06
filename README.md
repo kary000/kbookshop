@@ -552,7 +552,7 @@ az acr build --registry user19skccacr --image user19skccacr.azurecr.io/gateway:v
 ```
 ![image](https://user-images.githubusercontent.com/84000898/124409871-2f110c00-dd84-11eb-8ba7-9a5c6af7bc6b.png)
 
-- 컨테이너라이징(Containerizing) : Deployment 생성
+- 컨테이너라이징(Containerizing) : Deployment & Service 생성
 ```
 kubectl create deploy order --image=user19skccacr.azurecr.io/order:v7
 kubectl create deploy book --image=user19skccacr.azurecr.io/book:v7
@@ -561,11 +561,6 @@ kubectl create deploy mypage --image=user19skccacr.azurecr.io/mypage:v7
 kubectl create deploy review --image=user19skccacr.azurecr.io/review:v7
 kubectl create deploy gateway --image=user19skccacr.azurecr.io/gateway:v7
 
-kubectl get all
-```
-
-- 컨테이너라이징(Containerizing) : Service 생성 확인
-```
 kubectl expose deploy order --type=ClusterIP --port=8080
 kubectl expose deploy book --type=ClusterIP --port=8080
 kubectl expose deploy delivery --type=ClusterIP --port=8080
