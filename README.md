@@ -700,7 +700,7 @@ kubectl get configmap orderst -o yaml
 
 ## Self-Healing (Liveness Probe)
 
-- book 서비스의 deployment.yaml에 liveness probe 옵션 추가 : Liveness Probe를 수행하기 전에 3초 대기했다가, 5초단위로 healthy 파일이 존재하는지 확인
+- book 서비스의 deployment.yaml에 liveness probe 옵션 추가 : Liveness Probe를 수행하기 전에 5초 대기했다가(initialDelaySeconds), 5초단위로(periodSeconds) healthy 파일이 존재하는지 확인
 
 ![image](https://user-images.githubusercontent.com/84000898/124464834-a029e100-ddcf-11eb-99c1-4b7a12705431.png)
  
